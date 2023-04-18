@@ -1,0 +1,120 @@
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100&display=swap');
+
+*{
+    margin: 0;
+}
+
+body{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: gray;
+    display:flex;
+    flex-flow: row;
+}
+
+#izquierda{
+    width: 50vw;
+    min-height: 100vh;
+    background-color: darkblue;
+    background-image: url(./viego.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    transition: all 1s ease;
+}
+
+#filtro-izquierda{
+    width: 50vw;
+    min-height: 100vh;
+    position:absolute;
+    background-color: rgb(0, 0, 255,0.1); 
+    cursor:pointer;
+    transition: all 0.5s ease;
+    z-index: 3;
+}
+
+#filtro-izquierda:hover{
+    background-color: rgb(0, 0, 255,0.15);
+}
+
+#wrapper-izq, #wrapper-der{
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#derecha{
+    width: 50vw;
+    max-width: 50vw;
+    overflow: hidden;
+    min-height: 100vh;
+    background-color: darkred;
+    background-image: url(./kayn.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    transition: all 1s ease;
+}
+
+#filtro-derecha{
+    width: 50vw;
+    min-height: 100vh;
+    position:absolute;
+    background-color: rgb(255, 0, 0, 0.1); 
+    margin-left: 50vw;
+    cursor:pointer;
+    transition: all 0.5s ease;
+    z-index: 3;
+}
+
+#filtro-derecha:hover{
+    background-color: rgb(255, 0, 0, 0.15);
+}
+
+
+
+div h3{
+    font-family: Montserrat, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color:rgb(235, 235, 235);
+    background-color: black;
+    box-shadow: black 0px 0px 30px;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 3px solid rgb(235, 235, 235);
+    z-index: 40;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: absolute;
+}
+
+div h3:hover{
+    font-size: 2.3rem;
+    color: rgb(235, 235, 235);
+    border: 3px solid rgb(235, 235, 235);
+    box-shadow: white 0px 0px 30px;
+    background-color: rgb(130, 130, 130);
+}
+
+/*
+div h3:hover{
+    font-size: 2.3rem;
+    color: rgb(235, 235, 235);
+    border: 3px solid rgb(235, 235, 235);
+    box-shadow: white 0px 0px 30px;
+    background-color: rgb(130, 130, 130);
+}
+*/
+
+.h3-hover{
+    font-size: 2.3rem;
+    color: rgb(235, 235, 235);
+    border: 3px solid rgb(235, 235, 235);
+    box-shadow: white 0px 0px 30px;
+    background-color: rgb(130, 130, 130);
+}
