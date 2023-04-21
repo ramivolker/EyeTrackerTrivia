@@ -16,7 +16,7 @@ body{
     width: 50vw;
     min-height: 100vh;
     background-color: darkblue;
-    background-image: url(./viego.jpg);
+    background-image: url(./opcionesImagenes/viego.jpg);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -35,6 +35,16 @@ body{
     z-index: 3;
 }
 
+#izquierda-hitbox{
+    width: 50vw;
+    min-height: 100vh;
+    position:absolute;
+    background-color: rgb(0, 0, 255,0.0); 
+    cursor:pointer;
+    transition: all 0.5s ease;
+    z-index: 4;
+}
+
 #filtro-izquierda:hover{
     background-color: rgb(0, 0, 255,0.15);
 }
@@ -51,7 +61,7 @@ body{
     overflow: hidden;
     min-height: 100vh;
     background-color: darkred;
-    background-image: url(./kayn.jpg);
+    background-image: url(./opcionesImagenes/kayn.jpg);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -71,6 +81,17 @@ body{
     z-index: 3;
 }
 
+#derecha-hitbox{
+    width: 50vw;
+    min-height: 100vh;
+    position:absolute;
+    background-color: rgb(255, 0, 0, 0.0); 
+    margin-left: 50vw;
+    cursor:pointer;
+    transition: all 0.5s ease;
+    z-index: 4;
+}
+
 #filtro-derecha:hover{
     background-color: rgb(255, 0, 0, 0.15);
 }
@@ -82,15 +103,44 @@ div h3{
     font-size: 2rem;
     font-weight: 700;
     color:rgb(235, 235, 235);
-    background-color: black;
+    background-color: rgb(15, 15, 15,0.8);
     box-shadow: black 0px 0px 30px;
     padding: 0.5rem;
     border-radius: 10px;
-    border: 3px solid rgb(235, 235, 235);
-    z-index: 40;
+    border: 2px solid rgb(235, 235, 235,0.1);
+    z-index: 3;
     cursor: pointer;
     transition: all 0.5s ease;
     position: absolute;
+}
+
+#pregunta-wrapper{
+    position: absolute;
+    width: 30vw;
+    height: fit-content;
+    border: 3px solid rgb(235, 235, 235,1);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 150px;
+    z-index: 5;
+    background-color: rgb(15, 15, 15,0.8);
+    border-radius: 10px;
+    display:none;
+}
+
+#pregunta{
+    font-family: Montserrat, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color:rgb(235, 235, 235);
+    padding: 0.5rem;
+    user-select: none;
+    z-index: 3;
+    cursor:default;
+    transition: all 0.5s ease;
+    text-align: center;
 }
 
 div h3:hover{
@@ -114,7 +164,112 @@ div h3:hover{
 .h3-hover{
     font-size: 2.3rem;
     color: rgb(235, 235, 235);
-    border: 3px solid rgb(235, 235, 235);
+    border: 3px solid rgb(235, 235, 235,0.1);
     box-shadow: white 0px 0px 30px;
     background-color: rgb(130, 130, 130);
+}
+
+#start-grayfilter{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgb(40, 40, 40, 0.7);
+    z-index: 10;
+    display: flex;
+    transition: all 0.5s ease;
+}
+
+#playlogo{
+    width: 60px;
+    text-align: end;
+    font-size: 4rem;
+    cursor:pointer;
+    color: white;
+    transition: all 0.5s ease;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.playlogo-hover{
+    color:gray;
+}
+
+@keyframes playlogoanim{
+    0%{
+        scale: 1.0;
+    }
+    50%{
+        scale:1.1;
+    }
+    100%{
+        scale:1.0;
+    }
+}
+.playlogo-wrapper{
+    width: 4rem;
+    margin: auto;
+    align-self: center;
+    padding: 3.5rem;
+    background-color: white;
+    border-radius: 50%;
+    border: 6px solid white;
+    color: white;
+    background-color: #121212;
+    box-shadow: 0 0 20px 2px white;
+    cursor:pointer;
+    transition: all 0.5s ease;
+}
+
+.playlogo-hitboxhover{
+    box-shadow: 0 0 50px 12px white;
+    border: 6px solid gray;
+}
+
+#playlogo-hitbox{
+    background-color: rgb(255, 0, 0,0);
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    position:fixed;
+    align-self:center;
+    justify-self: center;
+    right:0;
+    left:0;
+    margin-right:auto;
+    margin-left:auto;
+    cursor: pointer;
+    z-index: 5;
+}
+
+#triveyelogo{
+    position: absolute;
+    left: 0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    scale: 0.5;
+    top: -170px;
+    filter: drop-shadow();
+}
+
+#contador{
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 4rem;
+    color: white;
+    padding: 1rem 1.5rem;
+    background-color: rgb(15, 15, 15,0.8);
+    position: absolute;
+    z-index: 5;
+    left:0;
+    right:0;
+    top: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    border-radius: 10px;
+    border: 3px solid rgb(235, 235, 235,1);
+    user-select: none;
+    display: none;
 }
