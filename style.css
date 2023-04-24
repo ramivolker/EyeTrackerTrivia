@@ -112,6 +112,7 @@ div h3{
     cursor: pointer;
     transition: all 0.5s ease;
     position: absolute;
+    user-select: none;
 }
 
 #pregunta-wrapper{
@@ -128,6 +129,7 @@ div h3{
     background-color: rgb(15, 15, 15,0.8);
     border-radius: 10px;
     display:none;
+    transition: all 0.5s ease;
 }
 
 #pregunta{
@@ -272,4 +274,100 @@ div h3:hover{
     border: 3px solid rgb(235, 235, 235,1);
     user-select: none;
     display: none;
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    transition: all 0.5s ease;
+}
+
+@keyframes contadorCorrecto{
+    20%{
+        border: 3px solid green;
+        color: green;
+    }
+    80%{
+        border: 3px solid green;
+        color: green;
+    }
+}
+
+@keyframes contadorIncorrecto{
+    20%{
+        border: 3px solid red;
+        color: red;
+    }
+    80%{
+        border: 3px solid red;
+        color: red;
+    }
+}
+
+.htmlshake{
+    animation-name: shake;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+
+html{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+@keyframes shake {
+    15%{
+        transform: translateX(45px);
+    }
+    30%{
+        transform: translateX(-45px);
+    }
+    45%{
+        transform: translateX(25px);
+    }
+    60%{
+        transform:translateX(-25px);
+    }
+    75%{
+        transform: translateX(0);
+    }
+}
+
+
+#highscore-wrapper{
+    position: absolute;
+    left:0;
+    right:0;
+    margin-left: auto;
+    margin-right:auto;
+    width: max-content;
+    top: 65vh;
+    
+}
+
+#highscore-titulo{
+    color: white;
+    font-family: Montserrat, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #333;
+    border-radius: 10px 10px 0 0;
+    padding: 0.5rem;
+    user-select: none;
+    width: max-content;
+    margin: auto;
+    z-index: 16;
+}
+
+#highscore-contador{
+    color: white;
+    font-family:  Montserrat, sans-serif;
+    font-size: 6rem;
+    text-align: center;
+    padding: 0.5rem 2rem;
+    background-color: #121212;
+    user-select: none;
+    border-radius: 10px;
+    border: 2px solid white
 }

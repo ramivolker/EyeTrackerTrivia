@@ -2,7 +2,9 @@ var hovderecha = document.getElementById("filtro-derecha");
 var hovizquierda = document.getElementById("filtro-izquierda");
 var correct = "izquierda";
 var contador = 0;
+var contadorRecord = 0;
 var casos = [];
+
 
 hovderecha.addEventListener("mouseover", function(){ // PASAR MOUSE DERECHA
     document.getElementById("derecha").style.scale = 1.12;
@@ -54,6 +56,9 @@ plhitbox.addEventListener("click", function(){                                  
 
     document.getElementById("pregunta-wrapper").style.display = "block";
     document.getElementById("contador").style.display = "block";
+    document.getElementById("pregunta-wrapper").style.opacity = "1";
+            document.getElementById("contador").style.opacity = "1";
+            randomLevel();
 })
 
 
@@ -61,9 +66,57 @@ hovizquierda.addEventListener("click",function(){
     if (correct == "izquierda"){
         contador += 1;
         document.getElementById("contador").innerHTML = contador;
+
+
+        document.getElementById("document").style.backgroundColor = "green";
+
+
+        document.getElementById("contador").style.animationName = "contadorCorrecto";
+        setTimeout(function(){
+            document.getElementById("contador").style.animationName = "contador";
+        }, 700); 
+        randomLevel();
+
+        document.getElementById("document").style.backgroundColor = "green";
+        document.getElementById("page").style.opacity = "0.8";
+        setTimeout(function(){
+            document.getElementById("page").style.opacity = "1";
+        }, 500); 
+
+        if (contadorRecord < contador){
+            contadorRecord = contador;
+            console.log(document.getElementById("highscore-contador").innerHTML);
+            document.getElementById("highscore-contador").innerHTML = contadorRecord;
+        }
     }
     else{
+        contador = 0;
         document.getElementById("contador").innerHTML = contador
+        document.getElementById("document").style.backgroundColor = "red";
+        document.getElementById("page").classList.add("htmlshake")
+        setTimeout(function(){
+            document.getElementById("page").classList.remove("htmlshake")
+        }, 500); 
+        document.getElementById("contador").style.animationName = "contadorIncorrecto";
+        setTimeout(function(){
+            document.getElementById("contador").style.animationName = "contador";
+        }, 1000); 
+
+        document.getElementById("page").style.opacity = "0.8";
+        document.getElementById("start-grayfilter").style.display = "flex";
+        setTimeout(function(){
+            document.getElementById("page").style.opacity = "1";
+        }, 300); 
+        setTimeout(function(){
+            document.getElementById("start-grayfilter").style.opacity = "1";
+            document.getElementById("pregunta-wrapper").style.opacity = "0";
+            document.getElementById("contador").style.opacity = "0";
+        }, 500); 
+        setTimeout(function(){
+            document.getElementById("start-grayfilter").style.opacity = "1";
+            document.getElementById("pregunta-wrapper").style.display = "none";
+            document.getElementById("contador").style.display = "none";
+        }, 1000); 
     }
 })
 
@@ -71,9 +124,60 @@ hovderecha.addEventListener("click",function(){
     if (correct == "derecha"){
         contador += 1;
         document.getElementById("contador").innerHTML = contador;
+
+
+        document.getElementById("document").style.backgroundColor = "green";
+
+
+        document.getElementById("contador").style.animationName = "contadorCorrecto";
+        setTimeout(function(){
+            document.getElementById("contador").style.animationName = "contador";
+        }, 700); 
+        randomLevel();
+
+        document.getElementById("document").style.backgroundColor = "green";
+        document.getElementById("page").style.opacity = "0.8";
+        setTimeout(function(){
+            document.getElementById("page").style.opacity = "1";
+        }, 500); 
+
+        if (contadorRecord < contador){
+            contadorRecord = contador;
+            console.log(document.getElementById("highscore-contador").innerHTML);
+            document.getElementById("highscore-contador").innerHTML = contadorRecord;
+        }
     }
     else{
+        contador = 0;
         document.getElementById("contador").innerHTML = contador
+        document.getElementById("document").style.backgroundColor = "red";
+        document.getElementById("page").classList.add("htmlshake")
+        setTimeout(function(){
+            document.getElementById("page").classList.remove("htmlshake")
+        }, 500); 
+        document.getElementById("contador").style.animationName = "contadorIncorrecto";
+        setTimeout(function(){
+            document.getElementById("contador").style.animationName = "contador";
+        }, 1000); 
+
+        document.getElementById("page").style.opacity = "0.8";
+        document.getElementById("start-grayfilter").style.display = "flex";
+        setTimeout(function(){
+            document.getElementById("page").style.opacity = "1";
+        }, 300); 
+        setTimeout(function(){
+            document.getElementById("start-grayfilter").style.opacity = "1";
+            document.getElementById("pregunta-wrapper").style.opacity = "0";
+            document.getElementById("contador").style.opacity = "0";
+        }, 500); 
+        setTimeout(function(){
+            document.getElementById("start-grayfilter").style.opacity = "1";
+            document.getElementById("pregunta-wrapper").style.display = "none";
+            document.getElementById("contador").style.display = "none";
+        }, 1000); 
+        
+    
+
     }
 })
 
@@ -96,6 +200,7 @@ class nivel{
         this.correccion = correccion;
         this.izquierdaFoto = izquierdaFoto;
         this.derechaFoto = derechaFoto;
+        this.aparecio = false;
 
         this.info = `Celular marca ${this.marca} de color ${this.color}, con un peso de 
         ${this.peso} gramos,  una resolución de pantalla de ${this.resolucionPantalla}px,
@@ -117,34 +222,37 @@ class nivel{
 }
 
 
-const caso1 = new nivel("¿Cuál es el main con el que más puntos de maestría tiene Volkah?","Viego","Kayn","izquierda","viego.jpg","kayn.jpg")
-const caso2 = new nivel("¿Quién gana en un mano a mano?","Facha","Zasu","derecha","facha.png","zasu.png")
-const caso3 = new nivel("¿Cuál skin posee un mayor valor en el mercado de CS:GO?","M4A1 HyperBeast","AWP Medusa","derecha","hyperbeast.jpg","medusa.jpg");
-const caso4 = new nivel("")
-console.log(caso2);
-caso2.select();
+casos.push(caso = new nivel("¿Cuál es el main con el que más puntos de maestría tiene Volkah?","Viego","Kayn","izquierda","viego.jpg","kayn.jpg"));
+casos.push(caso = new nivel("¿Quién gana en un mano a mano?","Facha","Zasu","derecha","facha.png","zasu.png"));
+casos.push(caso = new nivel("¿Cuál skin posee un mayor valor en el mercado de CS:GO?","M4A1 HyperBeast","AWP Medusa","derecha","hyperbeast.jpg","medusa.jpg"));
+casos.push(caso = new nivel("¿Cuál de estos personajes se llama Fidel Fiestas?","Opción A","Opción B","izquierda","fidelfiestas.jpg","abracadaniel.webp"));
+casos.push(caso = new nivel("¿Cuál es la capital de Australia?","Sidney","Canberra","derecha","sidney.webp","canberra.jpg"));
+casos.push(caso = new nivel("¿Cuál es el nombre del océano más grande del mundo?","Océano Pacífico","Océano Atlántico","izquierda","oceanopacifico.jpg","oceanoatlantico.jpg"));
+casos.push(caso = new nivel("¿Cuál es el continente más grande del mundo?","Asia","África","izquierda","asia.jpg","africa.webp"));
+casos.push(caso = new nivel("¿Cuál de estos álbumes pertenece a la banda británica Coldplay?","Native","Parachutes","derecha","native.jpg","parachutes.jpg"));
+casos.push(caso = new nivel("¿Cuál de estas canciones tiene más visitas en YouTube?","Everlong","Heart-Shaped Box","izquierda","everlong.jpg","heartshaped.jpg"));
+casos.push(caso = new nivel("¿Quién fue el primer ser humano en orbitar la tierra?","Yuri Gagarin","Neil Armstrong","izquierda","yurigagarin.jpg","neilarmstrong.jpg"));
+casos.push(caso = new nivel("¿Cuál es el río más largo de Norteamérica?","Río Colorado","Río Misisipi","derecha","riocolorado.jpg","misisipi.jpg"));
+casos.push(caso = new nivel("¿En qué país se encuentra el monte de Machu Picchu?","Perú","México","izquierda","machupicchuperu.jpg","machupicchumexico.jpg"));
+casos.push(caso = new nivel("¿Cuál de estos lenguajes de programación se utiliza principalmente para el manejo de servidores de páginas web?","Java","PHP","derecha","java.png","php.jpg"));
 
 /*const samsung = new celular("Samsung","gris",320,"1920x1080",23,4);
 const motorola = new celular("Motorola","negro",293,"1920x1080",32,3);
 const xiaomi = new celular("Xiaomi","verde",215,"2560x1440",44,6); */
 
 
-var numero = Math.trunc(Math.random() * 3 + 1);
 
-switch (numero){
-    case 1:
-        caso1.select();
-        break;
-    case 2:
-        caso2.select();
-        break;
-    case 3:
-        caso3.select();
-        break;
-    case 4:
-        caso4.select();
-        break;
-    case 5:
-        caso5.select();
-        break;
+
+function randomLevel(){
+    var numero = Math.trunc(Math.random() * casos.length);
+
+    if (casos[numero].aparecio == true){
+        randomLevel();
+    }
+    else{
+        casos[numero].select();
+        casos[numero].aparecio = true;
+    }
 }
+randomLevel();
+
