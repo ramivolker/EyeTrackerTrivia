@@ -103,7 +103,7 @@ div h3{
     font-size: 2rem;
     font-weight: 700;
     color:rgb(235, 235, 235);
-    background-color: rgb(15, 15, 15,0.8);
+    background-color: rgb(15, 15, 15,0.85);
     box-shadow: black 0px 0px 30px;
     padding: 0.5rem;
     border-radius: 10px;
@@ -113,6 +113,8 @@ div h3{
     transition: all 0.5s ease;
     position: absolute;
     user-select: none;
+    max-width: 25vw;
+    text-align: center;
 }
 
 #pregunta-wrapper{

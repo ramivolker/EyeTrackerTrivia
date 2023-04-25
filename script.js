@@ -62,7 +62,9 @@ plhitbox.addEventListener("click", function(){                                  
 })
 
 
-hovizquierda.addEventListener("click",function(){
+hovizquierda.addEventListener("click", izquierdaClic);
+
+function izquierdaClic(){
     if (correct == "izquierda"){
         contador += 1;
         document.getElementById("contador").innerHTML = contador;
@@ -78,7 +80,7 @@ hovizquierda.addEventListener("click",function(){
         randomLevel();
 
         document.getElementById("document").style.backgroundColor = "green";
-        document.getElementById("page").style.opacity = "0.8";
+        document.getElementById("page").style.opacity = "0.6";
         setTimeout(function(){
             document.getElementById("page").style.opacity = "1";
         }, 500); 
@@ -102,7 +104,7 @@ hovizquierda.addEventListener("click",function(){
             document.getElementById("contador").style.animationName = "contador";
         }, 1000); 
 
-        document.getElementById("page").style.opacity = "0.8";
+        document.getElementById("page").style.opacity = "0.7";
         document.getElementById("start-grayfilter").style.display = "flex";
         setTimeout(function(){
             document.getElementById("page").style.opacity = "1";
@@ -118,9 +120,11 @@ hovizquierda.addEventListener("click",function(){
             document.getElementById("contador").style.display = "none";
         }, 1000); 
     }
-})
+}
 
-hovderecha.addEventListener("click",function(){
+hovderecha.addEventListener("click",derechaClic);
+
+function derechaClic(){
     if (correct == "derecha"){
         contador += 1;
         document.getElementById("contador").innerHTML = contador;
@@ -136,7 +140,7 @@ hovderecha.addEventListener("click",function(){
         randomLevel();
 
         document.getElementById("document").style.backgroundColor = "green";
-        document.getElementById("page").style.opacity = "0.8";
+        document.getElementById("page").style.opacity = "0.6";
         setTimeout(function(){
             document.getElementById("page").style.opacity = "1";
         }, 500); 
@@ -160,7 +164,7 @@ hovderecha.addEventListener("click",function(){
             document.getElementById("contador").style.animationName = "contador";
         }, 1000); 
 
-        document.getElementById("page").style.opacity = "0.8";
+        document.getElementById("page").style.opacity = "0.7";
         document.getElementById("start-grayfilter").style.display = "flex";
         setTimeout(function(){
             document.getElementById("page").style.opacity = "1";
@@ -179,8 +183,7 @@ hovderecha.addEventListener("click",function(){
     
 
     }
-})
-
+}
 
 
 
@@ -223,11 +226,11 @@ class nivel{
 
 
 casos.push(caso = new nivel("¿Cuál es el main con el que más puntos de maestría tiene Volkah?","Viego","Kayn","izquierda","viego.jpg","kayn.jpg"));
-casos.push(caso = new nivel("¿Quién gana en un mano a mano?","Facha","Zasu","derecha","facha.png","zasu.png"));
+casos.push(caso = new nivel("¿En cuál de estas ramas de la mecánica se utiliza aceite a presión para movilizar cargas pesadas?","Neumática","Hidráulica","derecha","neumatica.jpeg","hidraulica.jpg"));
 casos.push(caso = new nivel("¿Cuál skin posee un mayor valor en el mercado de CS:GO?","M4A1 HyperBeast","AWP Medusa","derecha","hyperbeast.jpg","medusa.jpg"));
 casos.push(caso = new nivel("¿Cuál de estos personajes se llama Fidel Fiestas?","Opción A","Opción B","izquierda","fidelfiestas.jpg","abracadaniel.webp"));
 casos.push(caso = new nivel("¿Cuál es la capital de Australia?","Sidney","Canberra","derecha","sidney.webp","canberra.jpg"));
-casos.push(caso = new nivel("¿Cuál es el nombre del océano más grande del mundo?","Océano Pacífico","Océano Atlántico","izquierda","oceanopacifico.jpg","oceanoatlantico.jpg"));
+casos.push(caso = new nivel("¿Cuál es el nombre del océano más grande del mundo?","Océano Pacífico","Océano Atlántico","izquierda","oceanopacifico.webp","oceanoatlantico.jpg"));
 casos.push(caso = new nivel("¿Cuál es el continente más grande del mundo?","Asia","África","izquierda","asia.jpg","africa.webp"));
 casos.push(caso = new nivel("¿Cuál de estos álbumes pertenece a la banda británica Coldplay?","Native","Parachutes","derecha","native.jpg","parachutes.jpg"));
 casos.push(caso = new nivel("¿Cuál de estas canciones tiene más visitas en YouTube?","Everlong","Heart-Shaped Box","izquierda","everlong.jpg","heartshaped.jpg"));
@@ -235,10 +238,7 @@ casos.push(caso = new nivel("¿Quién fue el primer ser humano en orbitar la tie
 casos.push(caso = new nivel("¿Cuál es el río más largo de Norteamérica?","Río Colorado","Río Misisipi","derecha","riocolorado.jpg","misisipi.jpg"));
 casos.push(caso = new nivel("¿En qué país se encuentra el monte de Machu Picchu?","Perú","México","izquierda","machupicchuperu.jpg","machupicchumexico.jpg"));
 casos.push(caso = new nivel("¿Cuál de estos lenguajes de programación se utiliza principalmente para el manejo de servidores de páginas web?","Java","PHP","derecha","java.png","php.jpg"));
-
-/*const samsung = new celular("Samsung","gris",320,"1920x1080",23,4);
-const motorola = new celular("Motorola","negro",293,"1920x1080",32,3);
-const xiaomi = new celular("Xiaomi","verde",215,"2560x1440",44,6); */
+casos.push(caso = new nivel("¿Qué es un diagrama de flujo?","Una representación gráfica de los pasos involucrados en un proceso de producción","Una herramienta para medir el rendimiento de un proceso industrial","izquierda","diagramadeflujo.png","diagramadeflujo2.webp"));
 
 
 
@@ -247,6 +247,17 @@ function randomLevel(){
     var numero = Math.trunc(Math.random() * casos.length);
 
     if (casos[numero].aparecio == true){
+        var aparecieron = casos.length;
+        for (modelos in casos){
+            if(casos[modelos].aparecio==true){
+                aparecieron -= 1;
+            }
+            if(aparecieron == 0){
+                document.getElementById("pregunta").innerHTML = "NO QUEDAN MÁS PREGUNTAS";
+                hovderecha.removeEventListener("click", derechaClic);
+                hovizquierda.removeEventListener("click", izquierdaClic);
+            }
+        }
         randomLevel();
     }
     else{
