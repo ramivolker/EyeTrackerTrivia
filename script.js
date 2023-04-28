@@ -80,7 +80,7 @@ function izquierdaClic(){
         randomLevel();
 
         document.getElementById("document").style.backgroundColor = "green";
-        document.getElementById("page").style.opacity = "0.6";
+        document.getElementById("page").style.opacity = "0.5";
         setTimeout(function(){
             document.getElementById("page").style.opacity = "1";
         }, 500); 
@@ -90,6 +90,45 @@ function izquierdaClic(){
             console.log(document.getElementById("highscore-contador").innerHTML);
             document.getElementById("highscore-contador").innerHTML = contadorRecord;
         }
+
+
+        //      ANIMACION APARICION NUEVA PREGUNTA
+
+        document.getElementById("h3-izq").style.transitionDuration = "0s";
+        document.getElementById("h3-izq").style.opacity ="0";
+        setTimeout(function(){
+            document.getElementById("h3-izq").style.transitionDuration = "1s";
+            document.getElementById("h3-izq").style.opacity ="1";
+        }, 600); 
+
+        document.getElementById("h3-der").style.transitionDuration = "0s";
+        document.getElementById("h3-der").style.opacity ="0";
+        setTimeout(function(){
+            document.getElementById("h3-der").style.transitionDuration = "1s";
+            document.getElementById("h3-der").style.opacity ="1";
+        }, 600); 
+
+        document.getElementById("pregunta").style.transitionDuration = "0s";
+        document.getElementById("pregunta").style.opacity ="0";
+        setTimeout(function(){
+            document.getElementById("pregunta").style.transitionDuration = "1s";
+            document.getElementById("pregunta").style.opacity ="1";
+        }, 200); 
+
+        document.getElementById("pregunta-wrapper").style.transitionDuration = "0s";
+        document.getElementById("pregunta-wrapper").style.opacity ="0";
+        setTimeout(function(){
+            document.getElementById("pregunta-wrapper").style.transitionDuration = "1s";
+            document.getElementById("pregunta-wrapper").style.opacity ="1";
+        }, 200); 
+
+        document.getElementById("contador").style.transitionDuration = "0s";
+        document.getElementById("contador").style.opacity ="0";
+        setTimeout(function(){
+            document.getElementById("contador").style.transitionDuration = "1s";
+            document.getElementById("contador").style.opacity ="1";
+        }, 200); 
+        
     }
     else{
         contador = 0;
@@ -140,7 +179,7 @@ function derechaClic(){
         randomLevel();
 
         document.getElementById("document").style.backgroundColor = "green";
-        document.getElementById("page").style.opacity = "0.6";
+        document.getElementById("page").style.opacity = "0.5";
         setTimeout(function(){
             document.getElementById("page").style.opacity = "1";
         }, 500); 
@@ -150,6 +189,44 @@ function derechaClic(){
             console.log(document.getElementById("highscore-contador").innerHTML);
             document.getElementById("highscore-contador").innerHTML = contadorRecord;
         }
+
+
+        //      ANIMACION APARICION NUEVA PREGUNTA
+
+        document.getElementById("h3-izq").style.transitionDuration = "0s";
+        document.getElementById("h3-izq").style.opacity ="0";
+        setTimeout(function(){
+            document.getElementById("h3-izq").style.transitionDuration = "1s";
+            document.getElementById("h3-izq").style.opacity ="1";
+        }, 600); 
+
+        document.getElementById("h3-der").style.transitionDuration = "0s";
+        document.getElementById("h3-der").style.opacity ="0";
+        setTimeout(function(){
+            document.getElementById("h3-der").style.transitionDuration = "1s";
+            document.getElementById("h3-der").style.opacity ="1";
+        }, 600); 
+
+        document.getElementById("pregunta").style.transitionDuration = "0s";
+        document.getElementById("pregunta").style.opacity ="0";
+        setTimeout(function(){
+            document.getElementById("pregunta").style.transitionDuration = "1s";
+            document.getElementById("pregunta").style.opacity ="1";
+        }, 200); 
+
+        document.getElementById("pregunta-wrapper").style.transitionDuration = "0s";
+        document.getElementById("pregunta-wrapper").style.opacity ="0";
+        setTimeout(function(){
+            document.getElementById("pregunta-wrapper").style.transitionDuration = "1s";
+            document.getElementById("pregunta-wrapper").style.opacity ="1";
+        }, 200); 
+
+        document.getElementById("contador").style.transitionDuration = "0s";
+        document.getElementById("contador").style.opacity ="0";
+        setTimeout(function(){
+            document.getElementById("contador").style.transitionDuration = "1s";
+            document.getElementById("contador").style.opacity ="1";
+        }, 200); 
     }
     else{
         contador = 0;
@@ -226,9 +303,10 @@ class nivel{
 
 
 casos.push(caso = new nivel("¿Cuál es el main con el que más puntos de maestría tiene Volkah?","Viego","Kayn","izquierda","viego.jpg","kayn.jpg"));
-casos.push(caso = new nivel("¿En cuál de estas ramas de la mecánica se utiliza aceite a presión para movilizar cargas pesadas?","Neumática","Hidráulica","derecha","neumatica.jpeg","hidraulica.jpg"));
 casos.push(caso = new nivel("¿Cuál skin posee un mayor valor en el mercado de CS:GO?","M4A1 HyperBeast","AWP Medusa","derecha","hyperbeast.jpg","medusa.jpg"));
+
 casos.push(caso = new nivel("¿Cuál de estos personajes se llama Fidel Fiestas?","Opción A","Opción B","izquierda","fidelfiestas.jpg","abracadaniel.webp"));
+
 casos.push(caso = new nivel("¿Cuál es la capital de Australia?","Sidney","Canberra","derecha","sidney.webp","canberra.jpg"));
 casos.push(caso = new nivel("¿Cuál es el nombre del océano más grande del mundo?","Océano Pacífico","Océano Atlántico","izquierda","oceanopacifico.webp","oceanoatlantico.jpg"));
 casos.push(caso = new nivel("¿Cuál es el continente más grande del mundo?","Asia","África","izquierda","asia.jpg","africa.webp"));
@@ -237,8 +315,17 @@ casos.push(caso = new nivel("¿Cuál de estas canciones tiene más visitas en Yo
 casos.push(caso = new nivel("¿Quién fue el primer ser humano en orbitar la tierra?","Yuri Gagarin","Neil Armstrong","izquierda","yurigagarin.jpg","neilarmstrong.jpg"));
 casos.push(caso = new nivel("¿Cuál es el río más largo de Norteamérica?","Río Colorado","Río Misisipi","derecha","riocolorado.jpg","misisipi.jpg"));
 casos.push(caso = new nivel("¿En qué país se encuentra el monte de Machu Picchu?","Perú","México","izquierda","machupicchuperu.jpg","machupicchumexico.jpg"));
+casos.push(caso = new nivel("¿Cómo se llama el perro de la familia Simpson?","Ayudante de Santa","Sabueso","izquierda","ayudantedesanta.jpg","sabueso.webp"));
+
 casos.push(caso = new nivel("¿Cuál de estos lenguajes de programación se utiliza principalmente para el manejo de servidores de páginas web?","Java","PHP","derecha","java.png","php.jpg"));
 casos.push(caso = new nivel("¿Qué es un diagrama de flujo?","Una representación gráfica de los pasos involucrados en un proceso de producción","Una herramienta para medir el rendimiento de un proceso industrial","izquierda","diagramadeflujo.png","diagramadeflujo2.webp"));
+casos.push(caso = new nivel("¿Cuál de estos dispositivos es un controlador lógico programable utilizado para automatizar procesos industriales?","VFD","PLC","derecha","vfd.jpg","plc.jpg"));
+casos.push(caso = new nivel("¿Qué tipo de ingeniería se enfoca en la producción y uso de fuentes de energía renovable?","Ingeniería Eléctrica","Ingeniería Ambiental","derecha","ingelectrica.jpg","ingambiental.jpg"));
+casos.push(caso = new nivel("¿Cuál es la unidad de medida de la resistencia eléctrica?","Ohms","Amperios","izquierda","ohms.png","amperio.webp"));
+casos.push(caso = new nivel("¿Cuál es el componente electrónico que se utiliza para almacenar energía en un circuito?","Inductor","Capacitor","derecha","inductor.jpg","capacitor.jpg"));
+casos.push(caso = new nivel("¿En cuál de estas ramas de la mecánica se utiliza aceite a presión para movilizar cargas pesadas?","Neumática","Hidráulica","derecha","neumatica.jpeg","hidraulica.jpg"));
+
+
 
 
 
