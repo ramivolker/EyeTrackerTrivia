@@ -252,9 +252,9 @@ div h3:hover{
     right:0;
     margin-left: auto;
     margin-right: auto;
-    scale: 0.5;
-    top: -170px;
+    width: 400px;
     filter: drop-shadow();
+    top: 30px;
 }
 
 #contador{
@@ -372,4 +372,92 @@ html{
     user-select: none;
     border-radius: 10px;
     border: 2px solid white
+}
+
+
+@media (max-width:800px){
+    #contador{
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+        height: fit-content;
+        margin-right: 5vw;
+    }
+
+    #pregunta-wrapper{
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 5vw;
+        width: unset;
+        margin-right: calc(10vw + 92px);
+    }
+
+    #wrapper-izq{
+        width: 100vw;
+        height: 50vh;
+    }
+
+    #izquierda{
+        width: 100vw;
+        max-width: 100vw;
+        height: 50vh;
+        max-height: 50vh;
+        min-height: 50vh;
+    }
+
+    #filtro-izquierda{
+        width: 100vw;
+        min-height: 50vh;
+    }
+
+    #filtro-derecha{
+        width: 100vw;
+        min-height: 50vh;
+        margin-left: 0;
+        top: 0;
+        bottom: 0;
+        margin-top: 50vh;
+    }
+
+    #derecha{
+        width: 100vw;
+        max-width: 100vw;
+        height: 50vh;
+        max-height: 50vh;
+        min-height: 50vh;
+    }
+
+    #wrapper-der{
+        width: 100vw;
+        height: 50vh;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin-top: 50vh;
+    }
+
+    div h3{
+        max-width: 80vw;
+    }
+}
+
+@media (max-height:880px){
+    #triveyelogo{
+        top: 0;
+    }
+}
+
+@media (max-width:600px){
+    #pregunta{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:600px){
+    div h3{
+        font-size: 1.5rem;
+    }
 }

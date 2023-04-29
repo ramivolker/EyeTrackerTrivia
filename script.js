@@ -325,12 +325,19 @@ casos.push(caso = new nivel("¿Cuál es la unidad de medida de la resistencia el
 casos.push(caso = new nivel("¿Cuál es el componente electrónico que se utiliza para almacenar energía en un circuito?","Inductor","Capacitor","derecha","inductor.jpg","capacitor.jpg"));
 casos.push(caso = new nivel("¿En cuál de estas ramas de la mecánica se utiliza aceite a presión para movilizar cargas pesadas?","Neumática","Hidráulica","derecha","neumatica.jpeg","hidraulica.jpg"));
 
-
-
-
+casos.push(caso = new nivel("¿De qué manera se mueve el caballo en el Ajedrez?","2x2","2x1","derecha","2x2movement.png","2x1movement.png"));
+casos.push(caso = new nivel(`¿Qué famoso filósofo griego dijo la frase "Solo sé que no sé nada"?`,"Sócrates","Aristóteles","izquierda","socrates.jpg","aristoteles.jpg"));
+casos.push(caso = new nivel(`¿Cuál es el animal que provoca más muertes humanas al año?`,"Serpientes","Mosquitos","derecha","serpiente.jpg","mosquito.jpg"));
+casos.push(caso = new nivel(`¿Qué planeta tiene más lunas?`,"La Tierra","Venus","izquierda","latierra.jpg","venus.jpg"));
+casos.push(caso = new nivel(`¿Cuál de estos astros es considerado un "Planeta Gaseoso"?`,"Mercurio","Neptuno","derecha","mercurio.jpg","neptuno.jpg")); 
+casos.push(caso = new nivel(`¿Cuál es el país más pequeño del mundo?`,"Ciudad del Vaticano","Maldivas","izquierda","vaticano.jpg","maldivas.jpg")); 
+casos.push(caso = new nivel(`¿Cuál es la capital de España?`,"Barcelona","Madrid","derecha","barcelona.jpg","madrid.jpg"));
+casos.push(caso = new nivel(`¿Cuál es el país con más islas en todo el mundo?`,"Suecia","Australia","izquierda","suecia.jpg","australia.webp"));
+casos.push(caso = new nivel(`En el idioma portugués, ¿Qué significa "menino"?`,"Niño","Gato","izquierda","niño.jpg","gato.jpg"));
 
 
 function randomLevel(){
+    //var numero = casos.length - 1;
     var numero = Math.trunc(Math.random() * casos.length);
 
     if (casos[numero].aparecio == true){
