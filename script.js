@@ -11,7 +11,6 @@ if(window.innerWidth <= 800){
     hovderecha.removeEventListener("mouseout", hoverOutDerecha);
     hovizquierda.removeEventListener("mouseover", hoverIzquierda);
     hovizquierda.removeEventListener("mouseout", hoverOutIzquierda);
-
 }
 
 else{
@@ -323,10 +322,9 @@ class nivel{
 }
 
 
-casos.push(caso = new nivel("¿Cuál es el main con el que más puntos de maestría tiene Volkah?","Viego","Kayn","izquierda","viego.jpg","kayn.jpg"));
+/*
 casos.push(caso = new nivel("¿Cuál skin posee un mayor valor en el mercado de CS:GO?","M4A1 HyperBeast","AWP Medusa","derecha","hyperbeast.jpg","medusa.jpg"));
-
-casos.push(caso = new nivel("¿Cuál de estos personajes se llama Fidel Fiestas?","Opción A","Opción B","izquierda","fidelfiestas.jpg","abracadaniel.webp"));
+casos.push(caso = new nivel("¿Cuál de estos personajes se llama Fidel Fiestas?","Opción A","Opción B","izquierda","fidelfiestas.jpg","abracadaniel.webp")); */
 
 casos.push(caso = new nivel("¿Cuál es la capital de Australia?","Sidney","Canberra","derecha","sidney.webp","canberra.jpg"));
 casos.push(caso = new nivel("¿Cuál es el nombre del océano más grande del mundo?","Océano Pacífico","Océano Atlántico","izquierda","oceanopacifico.webp","oceanoatlantico.jpg"));

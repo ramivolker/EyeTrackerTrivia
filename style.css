@@ -461,3 +461,12 @@ html{
         font-size: 1.5rem;
     }
 }
+
+@media (max-width:400px){
+    #pregunta{
+        font-size: 1.2rem;
+    }
+    #contador{
+        font-size: 3rem;
+    }
+}
