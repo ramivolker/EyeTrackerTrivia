@@ -6,29 +6,50 @@ var contadorRecord = 0;
 var casos = [];
 
 
-hovderecha.addEventListener("mouseover", function(){ // PASAR MOUSE DERECHA
+if(window.innerWidth <= 800){
+    hovderecha.removeEventListener("mouseover", hoverDerecha);
+    hovderecha.removeEventListener("mouseout", hoverOutDerecha);
+    hovizquierda.removeEventListener("mouseover", hoverIzquierda);
+    hovizquierda.removeEventListener("mouseout", hoverOutIzquierda);
+
+}
+
+else{
+
+    hovderecha.addEventListener("mouseover",hoverDerecha); // PASAR MOUSE DERECHA
+ function hoverDerecha(){
     document.getElementById("derecha").style.scale = 1.12;
     document.getElementById("h3-der").classList.add("h3-hover");
     document.getElementById("h3-der").style.scale = 1.0;
     document.getElementById("izquierda").style.filter = "grayscale(0.6)";
-});
-hovderecha.addEventListener("mouseout", function(){                          // SACAR MOUSE DERECHA
+};
+hovderecha.addEventListener("mouseout",hoverOutDerecha);                        // SACAR MOUSE DERECHA
+  function hoverOutDerecha(){   
     document.getElementById("derecha").style.scale = 1.0;
     document.getElementById("h3-der").classList.remove("h3-hover");
     document.getElementById("izquierda").style.filter = "grayscale(0)";
-});
+};
 
-hovizquierda.addEventListener("mouseover", function(){                      // PASAR MOUSE IZQUIERDA
+hovizquierda.addEventListener("mouseover",hoverIzquierda);                  // PASAR MOUSE IZQUIERDA
+ function hoverIzquierda(){ 
     document.getElementById("izquierda").style.scale = 1.12;
     document.getElementById("h3-izq").classList.add("h3-hover");
     document.getElementById("h3-izq").style.scale = 1.0;
     document.getElementById("derecha").style.filter = "grayscale(0.6)";
-});
-hovizquierda.addEventListener("mouseout", function(){                       // SACAR MOUSE IZQUIERDA
+};
+hovizquierda.addEventListener("mouseout",hoverOutIzquierda);                       // SACAR MOUSE IZQUIERDA
+ function hoverOutIzquierda(){
     document.getElementById("izquierda").style.scale = 1.0;
     document.getElementById("h3-izq").classList.remove("h3-hover");
     document.getElementById("derecha").style.filter = "grayscale(0)";
-});
+};
+
+}
+
+
+
+
+
  
 
 
