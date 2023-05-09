@@ -398,37 +398,37 @@ html{
 
     #wrapper-izq{
         width: 100vw;
-        height: 50vh;
+        height: 50svh;
     }
 
     #izquierda{
         width: 100vw;
         max-width: 100vw;
         height: 50vh;
-        max-height: 50vh;
-        min-height: 50vh;
+        max-height: 50svh;
+        min-height: 50svh;
     }
 
     #filtro-izquierda{
         width: 100vw;
-        min-height: 50vh;
+        min-height: 50svh;
     }
 
     #filtro-derecha{
         width: 100vw;
-        min-height: 50vh;
+        min-height: 50svh;
         margin-left: 0;
         top: 0;
         bottom: 0;
-        margin-top: 50vh;
+        margin-top: 50svh;
     }
 
     #derecha{
         width: 100vw;
         max-width: 100vw;
         height: 50vh;
-        max-height: 50vh;
-        min-height: 50vh;
+        max-height: 50svh;
+        min-height: 50svh;
     }
 
     #wrapper-der{
@@ -437,7 +437,7 @@ html{
         position: absolute;
         top: 0;
         bottom: 0;
-        margin-top: 50vh;
+        margin-top: 50svh;
     }
 
     div h3{
