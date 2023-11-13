@@ -19,7 +19,6 @@ else{
  function hoverDerecha(){
     document.getElementById("derecha").style.scale = 1.12;
     document.getElementById("h3-der").classList.add("h3-hover");
-    document.getElementById("h3-der").style.scale = 1.0;
     document.getElementById("izquierda").style.filter = "grayscale(0.6)";
 };
 hovderecha.addEventListener("mouseout",hoverOutDerecha);                        // SACAR MOUSE DERECHA
@@ -33,7 +32,6 @@ hovizquierda.addEventListener("mouseover",hoverIzquierda);                  // P
  function hoverIzquierda(){ 
     document.getElementById("izquierda").style.scale = 1.12;
     document.getElementById("h3-izq").classList.add("h3-hover");
-    document.getElementById("h3-izq").style.scale = 1.0;
     document.getElementById("derecha").style.filter = "grayscale(0.6)";
 };
 hovizquierda.addEventListener("mouseout",hoverOutIzquierda);                       // SACAR MOUSE IZQUIERDA
@@ -107,7 +105,7 @@ function izquierdaClic(){
 
         if (contadorRecord < contador){
             contadorRecord = contador;
-            console.log(document.getElementById("highscore-contador").innerHTML);
+            //console.log(document.getElementById("highscore-contador").innerHTML);
             document.getElementById("highscore-contador").innerHTML = contadorRecord;
         }
 
@@ -206,7 +204,7 @@ function derechaClic(){
 
         if (contadorRecord < contador){
             contadorRecord = contador;
-            console.log(document.getElementById("highscore-contador").innerHTML);
+            //console.log(document.getElementById("highscore-contador").innerHTML);
             document.getElementById("highscore-contador").innerHTML = contadorRecord;
         }
 
@@ -302,29 +300,65 @@ class nivel{
         this.derechaFoto = derechaFoto;
         this.aparecio = false;
 
-        this.info = `Celular marca ${this.marca} de color ${this.color}, con un peso de 
-        ${this.peso} gramos,  una resolución de pantalla de ${this.resolucionPantalla}px,
-         una resolución de cámara de ${this.resolucionCamara}mpx y ${this.memoriaRam}GB de memoria RAM. <br>`;
     }
 
     select(){
-        document.getElementById("pregunta").innerHTML = this.pregunta;
-        document.getElementById("h3-izq").innerHTML = this.izquierda;
-        document.getElementById("h3-der").innerHTML = this.derecha;
-        document.getElementById("izquierda").style.backgroundImage = `url(./opcionesImagenes/${this.izquierdaFoto})`
-        document.getElementById("derecha").style.backgroundImage = `url(./opcionesImagenes/${this.derechaFoto})`
-        correct = this.correccion;
-    }
+        let numeroRandom = Math.round(Math.random());
 
-    verInfo(){
-        document.write(this.info + "<br>");
+        if(numeroRandom == 0){
+            if(this.correccion == "derecha"){
+                this.correccion = "izquierda";
+            }
+            else{
+                this.correccion = "derecha";
+            }
+            document.getElementById("pregunta").innerHTML = this.pregunta;
+            if(this.izquierda == ""){
+                document.getElementById("h3-izq").style.display = "none";
+            }
+            else{
+                document.getElementById("h3-izq").style.display = "unset";
+                document.getElementById("h3-izq").innerHTML = this.derecha;
+            }
+            if(this.derecha == ""){
+                document.getElementById("h3-der").style.display = "none";
+            }
+            else{
+                document.getElementById("h3-der").style.display = "unset";
+                document.getElementById("h3-der").innerHTML = this.izquierda;
+            }
+            document.getElementById("izquierda").style.backgroundImage = `url(./opcionesImagenes/${this.derechaFoto})`
+            document.getElementById("derecha").style.backgroundImage = `url(./opcionesImagenes/${this.izquierdaFoto})`
+        }
+
+        else{
+            document.getElementById("pregunta").innerHTML = this.pregunta;
+            if(this.izquierda == ""){
+                document.getElementById("h3-izq").style.display = "none";
+            }
+            else{
+                document.getElementById("h3-izq").style.display = "unset";
+                document.getElementById("h3-izq").innerHTML = this.izquierda;
+            }
+            if(this.derecha == ""){
+                document.getElementById("h3-der").style.display = "none";
+            }
+            else{
+                document.getElementById("h3-der").style.display = "unset";
+                document.getElementById("h3-der").innerHTML = this.derecha;
+            }
+            document.getElementById("izquierda").style.backgroundImage = `url(./opcionesImagenes/${this.izquierdaFoto})`
+            document.getElementById("derecha").style.backgroundImage = `url(./opcionesImagenes/${this.derechaFoto})`
+        }
+        correct = this.correccion;
     }
 }
 
 
 /*
 casos.push(caso = new nivel("¿Cuál skin posee un mayor valor en el mercado de CS:GO?","M4A1 HyperBeast","AWP Medusa","derecha","hyperbeast.jpg","medusa.jpg"));
-casos.push(caso = new nivel("¿Cuál de estos personajes se llama Fidel Fiestas?","Opción A","Opción B","izquierda","fidelfiestas.jpg","abracadaniel.webp")); */
+casos.push(caso = new nivel("¿Cuál de estos personajes se llama Fidel Fiestas?","Opción A","Opción B","izquierda","fidelfiestas.jpg","abracadaniel.webp"));
+*/
 
 casos.push(caso = new nivel("¿Cuál es la capital de Australia?","Sidney","Canberra","derecha","sidney.webp","canberra.jpg"));
 casos.push(caso = new nivel("¿Cuál es el nombre del océano más grande del mundo?","Océano Pacífico","Océano Atlántico","izquierda","oceanopacifico.webp","oceanoatlantico.jpg"));
@@ -354,6 +388,39 @@ casos.push(caso = new nivel(`¿Cuál es la capital de España?`,"Barcelona","Mad
 casos.push(caso = new nivel(`¿Cuál es el país con más islas en todo el mundo?`,"Suecia","Australia","izquierda","suecia.jpg","australia.webp"));
 casos.push(caso = new nivel(`En el idioma portugués, ¿Qué significa "menino"?`,"Niño","Gato","izquierda","niño.jpg","gato.jpg"));
 
+// preguntas 3/10
+
+casos.push(caso = new nivel(`¿Cuál de estos es un dispositivo mecánico que controla el flujo de un fluído en un conducto?`,"Válvula","Caldera","izquierda","valvula.jpg","caldera.jpg"));
+casos.push(caso = new nivel(`¿Cuál de estos es un interruptor diferencial o disyuntor?`,"","","derecha","termomagnetica.webp","disyuntor.jpg"));
+casos.push(caso = new nivel(`¿Cómo se llama el proceso de producción de células sanguíneas que, en la especie humana, se lleva a cabo en la médula ósea durante toda la vida?`,"Hemofilia","Hematopoyesis","derecha","hemofilia.jpg","hematopoyesis.png"));
+casos.push(caso = new nivel(`¿Cuál de estas características del cuerpo humano es regulada principalmente por las glándulas sudoríparas en la piel?`,"La producción de melanina","La temperatura corporal","derecha","melanina.jpg","temperaturasudor.jpg"));
+casos.push(caso = new nivel(`¿Cómo se le llama a la primera célula resultante de la unión del óvulo y el espermatozoide durante la fecundación?`,"Cigoto","Embrión","izquierda","cigoto.avif","embrion.jpg"));
+casos.push(caso = new nivel(`¿Cuál de las siguientes imágenes representa mejor al proceso conocido como "mitosis"?`,"","","izquierda","mitosis.jpg","sueñorem.png"));
+casos.push(caso = new nivel(`¿Qué estructura del ojo humano es responsable de enfocar la luz en la retina para lograr la mayor nitidez en la visión?`,"Cristalino","Coroides","izquierda","cristalino.jpg","coroides.jpeg"));
+casos.push(caso = new nivel(`¿Qué edificio es la sede central de la "CIA", agencia de inteligencia de los EE.UU?`,"","","izquierda","sedecia.avif","pentagonousa.jpeg"));
+casos.push(caso = new nivel(`¿Cuál de estos primates es un orangután?`,"","","derecha","gorila.jpg","orangutan.webp"));
+casos.push(caso = new nivel(`¿Cuál de estas personas es la máxima autoridad en la república popular China?`,"","","izquierda","presidentechina.webp","presidentenorcorea.jpg"));
+
+// preguntas 12/10
+
+casos.push(caso = new nivel(`¿Cuál de estos destacados futbolistas es de nacionalidad polaca?`,"Robert Lewandowski","Mario Mandzukic","izquierda","lewandowski.jpg","mandzukic.jpg"));
+casos.push(caso = new nivel(`¿Cuál de estos elementos es un pulverizador para fumigar?`,"","","derecha","pistolapintura.png","pulverizador.png"));
+casos.push(caso = new nivel(`¿Qué tipo de medicamento suele recetar un médico para tratar específicamente los síntomas de alergias?`,"Antipirético","Antihistamínico","derecha","antipiretico.jpg    ","antihistaminico.jpg"));
+casos.push(caso = new nivel(`¿Cuál de estas aves es un pelícano?`,"","","izquierda","pelicano.webp","grulla.jpg"));
+casos.push(caso = new nivel(`¿Cuál de estos gases abunda más en la atmósfera de La Tierra?`,"Nitrógeno","Dióxido de Carbono","izquierda","nitrogeno.jpg","dioxidocarbono.webp"));
+casos.push(caso = new nivel(`¿Quién escribió "Romeo y Julieta"?`,"Charles Dickens","William Shakespeare","derecha","charlesdickens.webp","shakespeare.jpg"));
+casos.push(caso = new nivel(`¿Cuál es la montaña más alta del sistema solar?`,"Monte Olimpo","Monte Everest","izquierda","olympusmons.png","everest.avif"));
+casos.push(caso = new nivel(`¿Cuál es el órgano más grande del cuerpo humano?`,"Piel","Pulmón","izquierda","piel.jpg","pulmon.jpg"));
+casos.push(caso = new nivel(`¿Cuál es el proceso por el cual las plantas convierten la glucosa en energía?`,"Respiración Celular","Fotosíntesis","izquierda","respiracioncelular.jpg","fotosintesis.jpg"));
+casos.push(caso = new nivel(`¿En qué país se encuentra la Gran Barrera de Coral, el arrecife de coral más grande del mundo?`,"México","Australia","derecha","mexicopais.jpg","australiapais.jpg"));
+casos.push(caso = new nivel(`¿Cuál es el metal que se utiliza comúnmente en la fabricación de baterías recargables?`,"Litio","Cobre","izquierda","litio.jpg","cobre.jpeg"));
+casos.push(caso = new nivel(`¿Quién fue el famoso científico que formuló la teoría de la relatividad?`,"Isaac Newton","Albert Einstein","derecha","isaacnewton.jpg","alberteinstein.jpeg"));
+//casos.push(caso = new nivel(`¿Cuál de estas aves es un pelícano?`,"","","izquierda","pelicano.webp","grulla.jpg"));
+//casos.push(caso = new nivel(`¿Cuál de estas aves es un pelícano?`,"","","izquierda","pelicano.webp","grulla.jpg"));
+//casos.push(caso = new nivel(`¿Cuál de estas aves es un pelícano?`,"","","izquierda","pelicano.webp","grulla.jpg"));
+//casos.push(caso = new nivel(`¿Cuál de estas aves es un pelícano?`,"","","izquierda","pelicano.webp","grulla.jpg"));
+
+//console.log("Cantidad de preguntas: " + casos.length)
 
 function randomLevel(){
     //var numero = casos.length - 1;
@@ -366,9 +433,16 @@ function randomLevel(){
                 aparecieron -= 1;
             }
             if(aparecieron == 0){
+                /*
                 document.getElementById("pregunta").innerHTML = "NO QUEDAN MÁS PREGUNTAS";
                 hovderecha.removeEventListener("click", derechaClic);
                 hovizquierda.removeEventListener("click", izquierdaClic);
+                return
+                */
+
+                casos.forEach((caso)=>{
+                    caso.aparecio = false;
+                })
             }
         }
         randomLevel();
